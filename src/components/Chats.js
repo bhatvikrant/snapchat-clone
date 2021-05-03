@@ -36,12 +36,12 @@ const Chats = () => {
 				{posts.map(
 					({
 						id,
-						data: { profilepic, username, timestamp, imageUrl, read },
+						data: { profilePic, username, timestamp, imageUrl, read },
 					}) => (
 						<Chat
 							key={id}
 							id={id}
-							profilepic={profilepic}
+							profilePic={profilePic}
 							username={username}
 							timestamp={timestamp}
 							imageUrl={imageUrl}
