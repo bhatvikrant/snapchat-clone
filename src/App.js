@@ -27,9 +27,9 @@ function App() {
 			if (authUser) {
 				dispatch(
 					login({
-						username: authUser.user.displayName,
-						profilePic: authUser.user.photoURL,
-						id: authUser.user.uid,
+						username: authUser.user?.displayName,
+						profilePic: authUser.user?.photoURL,
+						id: authUser.user?.uid,
 					}),
 				);
 				history.replace("/chats");
@@ -37,7 +37,7 @@ function App() {
 				dispatch(logout());
 			}
 		});
-	}, []);
+	}, [dispatch, history]);
 
 	return (
 		<div className="app">
@@ -45,22 +45,30 @@ function App() {
 				{!user ? (
 					<Login />
 				) : (
-					<div className="app__body">
-						<Switch>
-							<Route path="/chats/view">
-								<ChatView />
-							</Route>
-							<Route path="/chats">
-								<Chats />
-							</Route>
-							<Route path="/preview">
-								<Preview />
-							</Route>
-							<Route exact path="/">
-								<WebcamCapture />
-							</Route>
-						</Switch>
-					</div>
+					<>
+						<img
+							src="https://scx2.b-cdn.net/gfx/news/2017/1-snapchat.jpg"
+							className="app__logo"
+							alt=""
+						/>
+
+						<div className="app__body">
+							<Switch>
+								<Route path="/chats/view">
+									<ChatView />
+								</Route>
+								<Route path="/chats">
+									<Chats />
+								</Route>
+								<Route path="/preview">
+									<Preview />
+								</Route>
+								<Route exact path="/">
+									<WebcamCapture />
+								</Route>
+							</Switch>
+						</div>
+					</>
 				)}
 			</Router>
 		</div>

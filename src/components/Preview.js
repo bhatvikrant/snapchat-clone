@@ -18,9 +18,11 @@ import {
 import { v4 as uuid } from "uuid";
 import { db, storage } from "../firebase";
 import firebase from "firebase";
+import { selectUser } from "../features/appSlice";
 
 const Preview = () => {
 	const cameraImage = useSelector(selectCameraImage);
+	const user = useSelector(selectUser);
 
 	const history = useHistory();
 	const dispatch = useDispatch();
@@ -59,7 +61,7 @@ const Preview = () => {
 							imageUrl: url,
 							username: "viki",
 							read: false,
-							// profilePic
+							profilePic: user.profilePic,
 							timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 						});
 
