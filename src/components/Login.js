@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import "./Login.css";
 import { auth, provider } from "../firebase";
 import { login } from "../features/appSlice";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
 	const dispatch = useDispatch();
+	const history = useHistory();
 
 	const signIn = () => {
 		auth
@@ -18,6 +20,8 @@ const Login = () => {
 						id: result.user.uid,
 					}),
 				);
+
+				history.replace("/chats");
 			})
 			.catch(err => alert(err.message));
 	};

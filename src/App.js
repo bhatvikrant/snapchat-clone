@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	useHistory,
+} from "react-router-dom";
 import "./App.css";
 
 import WebcamCapture from "./components/WebcamCapture";
@@ -13,6 +18,8 @@ import { auth } from "./firebase";
 
 function App() {
 	const dispatch = useDispatch();
+	const history = useHistory();
+
 	const user = useSelector(selectUser);
 
 	useEffect(() => {
@@ -25,6 +32,7 @@ function App() {
 						id: authUser.user.uid,
 					}),
 				);
+				history.replace("/chats");
 			} else {
 				dispatch(logout());
 			}

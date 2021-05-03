@@ -1,12 +1,15 @@
 import { Avatar } from "@material-ui/core";
 import { ChatBubble, Search } from "@material-ui/icons";
 import { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { useSelector } from "react-redux";
+import { auth, db } from "../firebase";
 import Chat from "./Chat";
 import "./Chats.css";
+import { selectUser } from "../features/appSlice";
 
 const Chats = () => {
 	const [posts, setPosts] = useState([]);
+	const user = useSelector(selectUser);
 
 	useEffect(() => {
 		db.collection("posts")
@@ -24,7 +27,11 @@ const Chats = () => {
 	return (
 		<div className="chats">
 			<div className="chats__header">
-				<Avatar className="chats__avatar" />
+				<Avatar
+					className="chats__avatar"
+					src={user.profilePic}
+					onClick={() => auth.signOut()}
+				/>
 				<div className="chats__search">
 					<Search />
 					<input placeholder="Friends" type="text" />
