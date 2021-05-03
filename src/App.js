@@ -5,6 +5,7 @@ import "./App.css";
 import WebcamCapture from "./components/WebcamCapture";
 import Preview from "./components/Preview";
 import Chats from "./components/Chats";
+import ChatView from "./components/ChatView";
 
 function App() {
 	return (
@@ -12,6 +13,9 @@ function App() {
 			<div className="app__body">
 				<Router>
 					<Switch>
+						<Route path="/chats/view">
+							<ChatView />
+						</Route>
 						<Route path="/chats">
 							<Chats />
 						</Route>
