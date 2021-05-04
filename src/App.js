@@ -24,12 +24,13 @@ function App() {
 
 	useEffect(() => {
 		auth.onAuthStateChanged(authUser => {
+			console.log("authUser:", authUser);
 			if (authUser) {
 				dispatch(
 					login({
-						username: authUser.user?.displayName,
-						profilePic: authUser.user?.photoURL,
-						id: authUser.user?.uid,
+						username: authUser.displayName,
+						profilePic: authUser.photoURL,
+						id: authUser.uid,
 					}),
 				);
 				history.replace("/chats");
