@@ -50,7 +50,7 @@ function App() {
 						<img
 							src="https://scx2.b-cdn.net/gfx/news/2017/1-snapchat.jpg"
 							className="app__logo"
-							alt=""
+							alt="snapchat logo"
 						/>
 
 						<div className="app__body">
