@@ -59,7 +59,7 @@ const Preview = () => {
 					.then(url => {
 						db.collection("posts").add({
 							imageUrl: url,
-							username: "viki",
+							username: user?.username || "lolo",
 							read: false,
 							profilePic: user?.profilePic || "",
 							timestamp: firebase.firestore.FieldValue.serverTimestamp(),
