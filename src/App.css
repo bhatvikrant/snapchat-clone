@@ -25,3 +25,10 @@
 	background-color: white;
 	height: 400px;
 }
+
+@media screen and (max-width: 768px) {
+	.app__body {
+		background: none;
+		padding: 0;
+	}
+}

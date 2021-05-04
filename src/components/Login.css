@@ -20,3 +20,8 @@
 		height: 200px;
 	}
 }
+@media screen and (max-width: 320px) {
+	.login__container > img {
+		height: 100px;
+	}
+}
