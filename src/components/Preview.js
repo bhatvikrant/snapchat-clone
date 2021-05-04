@@ -61,7 +61,7 @@ const Preview = () => {
 							imageUrl: url,
 							username: "viki",
 							read: false,
-							profilePic: user.profilePic,
+							profilePic: user?.profilePic || "",
 							timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 						});
 

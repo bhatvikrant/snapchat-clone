@@ -53,20 +53,22 @@ function App() {
 						/>
 
 						<div className="app__body">
-							<Switch>
-								<Route path="/chats/view">
-									<ChatView />
-								</Route>
-								<Route path="/chats">
-									<Chats />
-								</Route>
-								<Route path="/preview">
-									<Preview />
-								</Route>
-								<Route exact path="/">
-									<WebcamCapture />
-								</Route>
-							</Switch>
+							<div className="app__bodyBackground">
+								<Switch>
+									<Route path="/chats/view">
+										<ChatView />
+									</Route>
+									<Route path="/chats">
+										<Chats />
+									</Route>
+									<Route path="/preview">
+										<Preview />
+									</Route>
+									<Route exact path="/">
+										<WebcamCapture />
+									</Route>
+								</Switch>
+							</div>
 						</div>
 					</>
 				)}
