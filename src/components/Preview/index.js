@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import "./Preview.css";
-import { resetCameraImage, selectCameraImage } from "../features/cameraSlice";
+import {
+	resetCameraImage,
+	selectCameraImage,
+} from "../../features/cameraSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -16,9 +19,9 @@ import {
 	Send,
 } from "@material-ui/icons";
 import { v4 as uuid } from "uuid";
-import { db, storage } from "../firebase";
+import { db, storage } from "../../firebase";
 import firebase from "firebase";
-import { selectUser } from "../features/appSlice";
+import { selectUser } from "../../features/appSlice";
 
 const Preview = () => {
 	const cameraImage = useSelector(selectCameraImage);

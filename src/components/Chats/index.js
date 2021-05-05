@@ -2,13 +2,13 @@ import { Avatar } from "@material-ui/core";
 import { ChatBubble, Search } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { auth, db } from "../firebase";
-import Chat from "./Chat";
+import { auth, db } from "../../firebase";
+import Chat from "../Chat";
 import "./Chats.css";
-import { selectUser } from "../features/appSlice";
+import { selectUser } from "../../features/appSlice";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import { useHistory } from "react-router-dom";
-import { resetCameraImage } from "../features/cameraSlice";
+import { resetCameraImage } from "../../features/cameraSlice";
 
 const Chats = () => {
 	const [posts, setPosts] = useState([]);

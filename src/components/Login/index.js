@@ -1,8 +1,8 @@
 import { Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import "./Login.css";
-import { auth, provider } from "../firebase";
-import { login } from "../features/appSlice";
+import { auth, provider } from "../../firebase";
+import { login } from "../../features/appSlice";
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
