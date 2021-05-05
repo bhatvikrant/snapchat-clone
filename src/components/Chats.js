@@ -12,6 +12,7 @@ import { resetCameraImage } from "../features/cameraSlice";
 
 const Chats = () => {
 	const [posts, setPosts] = useState([]);
+	const [postsList, setPostsList] = useState([]);
 	const user = useSelector(selectUser);
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -26,6 +27,12 @@ const Chats = () => {
 						data: doc.data(),
 					})),
 				);
+				setPostsList(
+					snapshot.docs.map(doc => ({
+						id: doc.id,
+						data: doc.data(),
+					})),
+				);
 			});
 	}, []);
 
@@ -33,6 +40,20 @@ const Chats = () => {
 		dispatch(resetCameraImage());
 		history.push("/");
 	};
+
+	const [searchQuery, setSearchQuery] = useState("");
+
+	useEffect(() => {
+		if (searchQuery !== "") {
+			setPostsList(
+				posts.filter(post =>
+					post.data.username.toLowerCase().includes(searchQuery.toLowerCase()),
+				),
+			);
+		} else {
+			setPostsList(posts);
+		}
+	}, [searchQuery, posts]);
 
 	return (
 		<div className="chats">
@@ -44,13 +65,18 @@ const Chats = () => {
 				/>
 				<div className="chats__search">
 					<Search className="chats__searchIcon" />
-					<input placeholder="Friends" type="text" />
+					<input
+						placeholder="Friends"
+						type="text"
+						value={searchQuery}
+						onChange={e => setSearchQuery(e.target.value)}
+					/>
 				</div>
 				<ChatBubble className="chats__chatIcon" />
 			</div>
 
 			<div className="chat__posts">
-				{posts.map(
+				{postsList.map(
 					({
 						id,
 						data: { profilePic, username, timestamp, imageUrl, read },
