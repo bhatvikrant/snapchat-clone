@@ -1,12 +1,12 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyDrLn4aVqJQQoX3KDGKrHjESRCkhw7k4oY",
-	authDomain: "snapchat-clone-c8f9b.firebaseapp.com",
-	projectId: "snapchat-clone-c8f9b",
-	storageBucket: "snapchat-clone-c8f9b.appspot.com",
-	messagingSenderId: "628526481542",
-	appId: "1:628526481542:web:39d1375ce2c860f2c5d107",
+	apiKey: process.env.REACT_APP_apiKey,
+	authDomain: process.env.REACT_APP_authDomain,
+	projectId: process.env.REACT_APP_projectId,
+	storageBucket: process.env.REACT_APP_storageBucket,
+	messagingSenderId: process.env.REACT_APP_messagingSenderId,
+	appId: process.env.REACT_APP_appId,
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
