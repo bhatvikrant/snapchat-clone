@@ -2,17 +2,24 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on PR
-'on': pull_request
+"on": pull_request
+env:
+  REACT_APP_apiKey: "${{ secrets.REACT_APP_apiKey }}"
+  REACT_APP_authDomain: "${{ secrets.REACT_APP_authDomain }}"
+  REACT_APP_projectId: "${{ secrets.REACT_APP_projectId }}"
+  REACT_APP_storageBucket: "${{ secrets.REACT_APP_storageBucket }}"
+  REACT_APP_messagingSenderId: "${{ secrets.REACT_APP_messagingSenderId }}"
+  REACT_APP_appId: "${{ secrets.REACT_APP_appId }}"
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm run build
+      - run: yarn && yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SNAPCHAT_CLONE_C8F9B }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SNAPCHAT_CLONE_C8F9B }}"
           projectId: snapchat-clone-c8f9b
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
