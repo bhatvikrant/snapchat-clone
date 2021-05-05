@@ -13,6 +13,7 @@ env:
   REACT_APP_storageBucket: "${{ secrets.REACT_APP_storageBucket }}"
   REACT_APP_messagingSenderId: "${{ secrets.REACT_APP_messagingSenderId }}"
   REACT_APP_appId: "${{ secrets.REACT_APP_appId }}"
+  REACT_APP_measurementId: "${{ secrets.REACT_APP_measurementId }}"
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
