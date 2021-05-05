@@ -12,7 +12,7 @@ import Preview from "./components/Preview";
 import Chats from "./components/Chats";
 import ChatView from "./components/ChatView";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "./features/appSlice";
+import { login, logout, selectUser } from "./redux/slices/appSlice";
 import Login from "./components/Login";
 import { auth } from "./firebase";
 

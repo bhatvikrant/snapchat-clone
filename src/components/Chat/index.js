@@ -2,7 +2,7 @@ import { Avatar } from "@material-ui/core";
 import { StopRounded } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
 import ReactTimeago from "react-timeago";
-import { selectImage } from "../../features/appSlice";
+import { selectImage } from "../../redux/slices/appSlice";
 import { db } from "../../firebase";
 import "./Chat.css";
 import { useHistory } from "react-router-dom";

@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { auth, db } from "../../firebase";
 import Chat from "../Chat";
 import "./Chats.css";
-import { selectUser } from "../../features/appSlice";
+import { selectUser } from "../../redux/slices/appSlice";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import { useHistory } from "react-router-dom";
-import { resetCameraImage } from "../../features/cameraSlice";
+import { resetCameraImage } from "../../redux/slices/cameraSlice";
 
 const Chats = () => {
 	const [posts, setPosts] = useState([]);

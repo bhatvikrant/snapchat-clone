@@ -1,6 +1,6 @@
 import "./ChatView.css";
 import { useSelector } from "react-redux";
-import { selectSelectedImage } from "../../features/appSlice";
+import { selectSelectedImage } from "../../redux/slices/appSlice";
 import { useHistory } from "react-router-dom";
 import { useCallback, useEffect } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
