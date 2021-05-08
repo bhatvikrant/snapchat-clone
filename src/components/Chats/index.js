@@ -55,13 +55,22 @@ const Chats = () => {
 		}
 	}, [searchQuery, posts]);
 
+	const logout = () => {
+		const confirm = window.confirm("Do you want to logout of Snapchat?");
+		if (confirm) {
+			auth.signOut();
+		} else {
+			return;
+		}
+	};
+
 	return (
 		<div className="chats">
 			<div className="chats__header">
 				<Avatar
 					className="chats__avatar"
 					src={user.profilePic}
-					onClick={() => auth.signOut()}
+					onClick={logout}
 				/>
 				<div className="chats__search">
 					<Search className="chats__searchIcon" />
