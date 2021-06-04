@@ -15,3 +15,4 @@
 
 1. OAuth Login (Google)
 2. Send / Recieve snaps
+3. Filter friends by name
